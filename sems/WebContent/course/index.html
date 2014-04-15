@@ -3,38 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#warp{width: 100%}
+#con{margin-left: 35%; margin-top:20px; position: absolute; top:240px; left:25px  }
+#leave{margin-bottom:10px}
+#submit{margin-top:10px }
+#imgg{width: 900px}
+#nam{ position: absolute; top:333px; left:160px; line-height: 20px; color: #5d5d5d }
+li{list-style: none;}
+</style>
+
 <script
   src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
-<style>
-
-body {
-  background-color: olive;
-}
-#top {
-position : absolute;
-left : 750px;
-top : 200px;
-}
-#main {
-position : absolute;
-border-radius : 5px;
-background-color : lightgray;
-border: 1px solid threedhighlight;
-width: 280px;
-height:175px;
-z-index: 10;
-left : 750px;
-top : 400px;
-}
-</style>
 <body>
-<div id="top">
-<h1>강의과정 관리 프로그램 </h1>
-<h3>만든이 : 한태희, 박헌웅, 김성호</h3>
-<p>팀명 : N3C(Newbie 3 Coder)
-</div>
-<div id="main">
+
+<div id="warp">
+<div id="imgg"><img id="imgg" src="img/22.png"></div>
+<div id="nam"><ul><li>한태희</li><li>박헌웅</li><li>김성호</li></ul></div>
+
+<div id="con">
 <select id="leave" onchange="leaveChange()">
   <option value="0">수행할 작업</option>
   <option value="1">insert</option>
@@ -46,39 +34,40 @@ top : 400px;
 
 <div id="insertBox" style="display:none">
 <form action="http://localhost:9999/sems/course/insert.bit">
-과정명 :   <input type="text" name="title"><br>
-설명 :     <input type="text" name="description"><br>
+과정명 : <input type="text" name="title"><br>
+설명 : <input type="text" name="description"><br>
 강의시간 : <input type="text" name="time"><br>
-<input type="submit" value="실행">
+<input id="submit" type="submit" value="실행">
 </form>
 </div>
 <div id="updateBox" style="display:none">
 <form action="http://localhost:9999/sems/course/update.bit">
 강의번호 : <input type="text" name="no"><br>
-과정명 :   <input type="text" name="title"><br>
-설명 :     <input type="text" name="description"><br>
+과정명 : <input type="text" name="title"><br>
+설명 : <input type="text" name="description"><br>
 강의시간 : <input type="text" name="time"><br>
-<input type="submit" value="실행">
+<input id="submit" type="submit" value="실행">
 </form>
 </div>
 <div id="deleteBox" style="display:none">
 <form action="http://localhost:9999/sems/course/delete.bit">
 강의번호 : <input type="text" name="no"><br>
-<input type="submit" value="실행">
+<input id="submit" type="submit" value="실행">
 </form>
 </div>
 <div id="detailBox" style="display:none">
 <form action="http://localhost:9999/sems/course/detail.bit">
 강의번호 : <input type="text" name="no"><br>
-<input type="submit" value="실행">
+<input id="submit" type="submit" value="실행">
 </form>
 </div>
 <div id="listBox" style="display:none">
 <form action="http://localhost:9999/sems/course/list.bit">
 페이지번호 : <input type="text" name="pageNo"><br>
-출력개수 :   <input type="text" name="pageSize"><br>
-<input type="submit" value="실행">
+출력개수 : <input type="text" name="pageSize"><br>
+<input id="submit" type="submit" value="실행">
 </form>
+</div>
 </div>
 </div>
 
@@ -144,7 +133,7 @@ var detailurl= "http://localhost:9999/semst/course/detail.bit?no=";
     	location.href = deleteurl+=n; */
     	
     }
-    else if (document.getElementById("leave").value == "5"){
+  else if (document.getElementById("leave").value == "5"){
     	
     	$("#insertBox").css("display", "none");
         $("#updateBox").css("display", "none");
@@ -155,6 +144,18 @@ var detailurl= "http://localhost:9999/semst/course/detail.bit?no=";
     	/* var n = prompt("검색하실 데이터 번호를 입력하세요","");
     	location.href = detailurl+=n;  */
     }
+  else if (document.getElementById("leave").value == "0"){
+  	
+  	$("#insertBox").css("display", "none");
+      $("#updateBox").css("display", "none");
+      $("#listBox").css("display", "none");
+      $("#deleteBox").css("display", "none");
+      $("#detailBox").css("display", "none");
+  	
+  	/* var n = prompt("검색하실 데이터 번호를 입력하세요","");
+  	location.href = detailurl+=n;  */
+  }
+    
   }
 </script>
 </html>
