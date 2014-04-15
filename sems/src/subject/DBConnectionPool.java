@@ -38,7 +38,7 @@ public class DBConnectionPool {
       try{con.close();}catch(Exception e){}
 
       System.out.println("안녕!-태희");
->>>>>>> .r5
+
     }
   }
 }
