@@ -11,6 +11,12 @@
 #imgg{width: 900px}
 #nam{ position: absolute; top:333px; left:160px; line-height: 20px; color: #5d5d5d }
 li{list-style: none;}
+.up1{width:164px}
+.up2{width:180px}
+.in1{width:164px}
+.in2{width:180px}
+.lis{width:128px}
+
 </style>
 
 <script
@@ -34,8 +40,8 @@ li{list-style: none;}
 
 <div id="insertBox" style="display:none">
 <form action="http://localhost:9999/sems/course/insert.bit">
-과정명 : <input type="text" name="title"><br>
-설명 : <input type="text" name="description"><br>
+과정명 : <input type="text" name="title" class="in1"><br>
+설명 : <input type="text" name="description" class="in2"><br>
 강의시간 : <input type="text" name="time"><br>
 <input id="submit" type="submit" value="실행">
 </form>
@@ -43,8 +49,8 @@ li{list-style: none;}
 <div id="updateBox" style="display:none">
 <form action="http://localhost:9999/sems/course/update.bit">
 강의번호 : <input type="text" name="no"><br>
-과정명 : <input type="text" name="title"><br>
-설명 : <input type="text" name="description"><br>
+과정명 : <input type="text" name="title" class="up1"><br>
+설명 : <input type="text" name="description" class="up2"><br>
 강의시간 : <input type="text" name="time"><br>
 <input id="submit" type="submit" value="실행">
 </form>
@@ -63,7 +69,7 @@ li{list-style: none;}
 </div>
 <div id="listBox" style="display:none">
 <form action="http://localhost:9999/sems/course/list.bit">
-페이지번호 : <input type="text" name="pageNo"><br>
+페이지 번호 : <input type="text" name="pageNo" class="lis"><br>
 출력개수 : <input type="text" name="pageSize"><br>
 <input id="submit" type="submit" value="실행">
 </form>
