@@ -1,5 +1,5 @@
 package subject;
-
+// 주석 테스트
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
