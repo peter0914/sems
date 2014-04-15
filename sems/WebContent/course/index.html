@@ -6,7 +6,35 @@
 <script
   src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
+<style>
+
+body {
+  background-color: olive;
+}
+#top {
+position : absolute;
+left : 750px;
+top : 200px;
+}
+#main {
+position : absolute;
+border-radius : 5px;
+background-color : lightgray;
+border: 1px solid threedhighlight;
+width: 280px;
+height:175px;
+z-index: 10;
+left : 750px;
+top : 400px;
+}
+</style>
 <body>
+<div id="top">
+<h1>강의과정 관리 프로그램 </h1>
+<h3>만든이 : 한태희, 박헌웅, 김성호</h3>
+<p>팀명 : N3C(Newbie 3 Coder)
+</div>
+<div id="main">
 <select id="leave" onchange="leaveChange()">
   <option value="0">수행할 작업</option>
   <option value="1">insert</option>
@@ -18,8 +46,8 @@
 
 <div id="insertBox" style="display:none">
 <form action="http://localhost:9999/sems/course/insert.bit">
-과정명 : <input type="text" name="title"><br>
-설명 : <input type="text" name="description"><br>
+과정명 :   <input type="text" name="title"><br>
+설명 :     <input type="text" name="description"><br>
 강의시간 : <input type="text" name="time"><br>
 <input type="submit" value="실행">
 </form>
@@ -27,8 +55,8 @@
 <div id="updateBox" style="display:none">
 <form action="http://localhost:9999/sems/course/update.bit">
 강의번호 : <input type="text" name="no"><br>
-과정명 : <input type="text" name="title"><br>
-설명 : <input type="text" name="description"><br>
+과정명 :   <input type="text" name="title"><br>
+설명 :     <input type="text" name="description"><br>
 강의시간 : <input type="text" name="time"><br>
 <input type="submit" value="실행">
 </form>
@@ -48,9 +76,10 @@
 <div id="listBox" style="display:none">
 <form action="http://localhost:9999/sems/course/list.bit">
 페이지번호 : <input type="text" name="pageNo"><br>
-출력개수 : <input type="text" name="pageSize"><br>
+출력개수 :   <input type="text" name="pageSize"><br>
 <input type="submit" value="실행">
 </form>
+</div>
 </div>
 
 </body>
