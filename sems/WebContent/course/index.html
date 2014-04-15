@@ -5,14 +5,56 @@
 <title>Insert title here</title>
 </head>
 <body>
-<select name="menu">
+<!-- <select name="menu">
 <option value="0" selected>수행할 작업</option>
-<option value="1">insert</option>
+<option value="1" onchange="alert('111')">insert</option>
 <option value="2">update</option>
 <option value="3">list</option>
 <option value="4">delete</option>
 <option value="5">detail</option>
+</select> -->
+
+<select id="leave" onchange="leaveChange()">
+  <option value="0">수행할 작업</option>
+  <option value="1">insert</option>
+  <option value="2">update</option>
+  <option value="3">list</option>
+  <option value="4">delete</option>
+  <option value="5">detail</option>
 </select>
 
+<div id="message"></div>
+
 </body>
+<script>
+var inserturl ="http://localhost:9999/semst/course/insert.bit?";
+var updateurl;
+var listurl;
+var deleteurl;
+var detailurl="http://localhost:9999/semst/course/detail.bit?no=";
+
+function leaveChange() {
+    if (document.getElementById("leave").value == "1"){
+    	var title = prompt("과정 이름을 입력하세요.",""); 
+    	var dest = prompt("과정 설명을 입력하세요." ,"");
+    	var hour = prompt("과정 시간을 입력하세요." ,"");
+    	inserturl+="title="+title+"&"+"description="+dest+"&"+"time="+hour;
+    	location.href = inserturl;
+    }     
+    else if (document.getElementById("leave").value == "2"){
+    	location.href = "http://localhost:9999/semst/course/update.bit?";
+    }
+    else if (document.getElementById("leave").value == "3"){
+    	location.href = "http://localhost:9999/semst/course/list.bit?";
+    }
+    else if (document.getElementById("leave").value == "4"){
+    	location.href = "http://localhost:9999/semst/course/delete.bit?";
+    }
+    else if (document.getElementById("leave").value == "5"){
+    	var n = prompt("검색하실 데이터 번호를 입력하세요","");
+    	detailurl+=n;
+    	location.href = detailurl;
+    }
+}
+</script>
 </html>
