@@ -1,4 +1,4 @@
-package subject;
+package servlets.subjects;
 
 /*
  * setter/getter 적용 <= encapsulation

@@ -1,4 +1,4 @@
-package subject;
+package servlets.subjects;
 
 import java.util.List;
 
