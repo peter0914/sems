@@ -3,17 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
-<!-- <select name="menu">
-<option value="0" selected>수행할 작업</option>
-<option value="1" onchange="alert('111')">insert</option>
-<option value="2">update</option>
-<option value="3">list</option>
-<option value="4">delete</option>
-<option value="5">detail</option>
-</select> -->
-
 <select id="leave" onchange="leaveChange()">
   <option value="0">수행할 작업</option>
   <option value="1">insert</option>
@@ -23,7 +16,14 @@
   <option value="5">detail</option>
 </select>
 
-<div id="message"></div>
+<div id="message">
+<form>
+이름: <input type="text" name="name"><br>
+전화: <input type="text" name="tel"><br>
+이메일: <input type="text" name="email"><br>
+<input type="submit" value="등록">
+</form>
+</div>
 
 </body>
 <script>
