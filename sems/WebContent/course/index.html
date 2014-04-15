@@ -17,38 +17,39 @@
 </select>
 
 <div id="insertBox" style="display:none">
-<form>
-과정명 : <input type="text" name="name"><br>
-설명 : <input type="text" name="tel"><br>
-강의시간 : <input type="text" name="email"><br>
-<input type="submit" value="등록">
+<form action="http://localhost:9999/sems/course/list.bit">
+과정명 : <input type="text" name="title"><br>
+설명 : <input type="text" name="description"><br>
+강의시간 : <input type="text" name="time"><br>
+<input type="submit" value="실행">
 </form>
 </div>
 <div id="updateBox" style="display:none">
-<form>
+<form action="http://localhost:9999/sems/course/list.bit">
 강의번호 : <input type="text" name="no"><br>
-과정명 : <input type="text" name="name"><br>
-설명 : <input type="text" name="tel"><br>
-강의시간 : <input type="text" name="email"><br>
-<input type="submit" value="등록">
+과정명 : <input type="text" name="title"><br>
+설명 : <input type="text" name="description"><br>
+강의시간 : <input type="text" name="time"><br>
+<input type="submit" value="실행">
 </form>
 </div>
 <div id="deleteBox" style="display:none">
-<form>
+<form action="http://localhost:9999/sems/course/list.bit">
 강의번호 : <input type="text" name="no"><br>
-<input type="submit" value="등록">
+<input type="submit" value="실행">
 </form>
 </div>
 <div id="detailBox" style="display:none">
-<form>
+<form action="http://localhost:9999/sems/course/list.bit">
 강의번호 : <input type="text" name="no"><br>
-<input type="submit" value="등록">
+<input type="submit" value="실행">
 </form>
 </div>
 <div id="listBox" style="display:none">
-<form>
-강의번호 : <input type="text" name="no"><br>
-<input type="submit" value="등록">
+<form action="http://localhost:9999/sems/course/list.bit">
+페이지번호 : <input type="text" name="pageNo"><br>
+출력개수 : <input type="text" name="pageSize"><br>
+<input type="submit" value="실행">
 </form>
 </div>
 
@@ -59,8 +60,7 @@ var updateurl = "http://localhost:9999/semst/course/update.bit?";
 var listurl= "http://localhost:9999/semst/course/list.bit?";
 var deleteurl= "http://localhost:9999/semst/course/delete.bit?no=";
 var detailurl= "http://localhost:9999/semst/course/detail.bit?no=";
-
-function leaveChange() {
+  function leaveChange() {
     if (document.getElementById("leave").value == "1"){
     	
     	$("#insertBox").css("display", "");
@@ -69,10 +69,12 @@ function leaveChange() {
     	$("#deleteBox").css("display", "none");
     	$("#detailBox").css("display", "none");
     	
-    	var title = $("#insertBox"); 
-    	var dest = prompt("과정 설명을 입력하세요." ,"");
-    	var hour = prompt("과정 시간을 입력하세요." ,"");
-    	inserturl+="title="+title+"&"+"description="+dest+"&"+"time="+hour;
+    	
+    	console.log($("#leave").attr("value"));
+    	//var title = $("#insertBox"); 
+    	//var dest = prompt("과정 설명을 입력하세요." ,"");
+    	//var hour = prompt("과정 시간을 입력하세요." ,"");
+    	/* inserturl+="title="+title+"&"+"description="+dest+"&"+"time="+hour;
     	location.href = inserturl; */
     }     
     else if (document.getElementById("leave").value == "2"){
@@ -83,11 +85,11 @@ function leaveChange() {
       $("#deleteBox").css("display", "none");
       $("#detailBox").css("display", "none");
         
-    	var no = prompt("수정하실 과정정보의 번호를 입력하세요.",""); 
+    	/* var no = prompt("수정하실 과정정보의 번호를 입력하세요.",""); 
     	var title = prompt("변경하실 이름을 입력하세요" ,"");
     	var dest = prompt("정보를 입력하세요" ,"");
     	var hour = prompt("시간을 입력하세요" ,"");
-    	location.href = updateurl+="no="+no+"&title="+title+"&description="+dest+"&time="+hour;
+    	location.href = updateurl+="no="+no+"&title="+title+"&description="+dest+"&time="+hour; */
     }
     else if (document.getElementById("leave").value == "3"){
     	
@@ -97,9 +99,9 @@ function leaveChange() {
         $("#deleteBox").css("display", "none");
         $("#detailBox").css("display", "none");
     	
-    	var sn = prompt("조회하실 페이지 번호를 입력하세요", "");
+    	/* var sn = prompt("조회하실 페이지 번호를 입력하세요", "");
     	var sz = prompt("출력하실 데이터 개수를 입력하세요", "");
-    	location.href = listurl+="pageNo="+sn+"&pageSize="+sz; 
+    	location.href = listurl+="pageNo="+sn+"&pageSize="+sz;  */
     }
     else if (document.getElementById("leave").value == "4"){
     	
@@ -109,8 +111,8 @@ function leaveChange() {
         $("#deleteBox").css("display", "");
         $("#detailBox").css("display", "none");
     	
-    	var n = prompt("삭제하실 데이터 번호를 입력하세요.","");
-    	location.href = deleteurl+=n;
+    	/* var n = prompt("삭제하실 데이터 번호를 입력하세요.","");
+    	location.href = deleteurl+=n; */
     	
     }
     else if (document.getElementById("leave").value == "5"){
@@ -121,9 +123,9 @@ function leaveChange() {
         $("#deleteBox").css("display", "none");
         $("#detailBox").css("display", "");
     	
-    	var n = prompt("검색하실 데이터 번호를 입력하세요","");
-    	location.href = detailurl+=n; 
+    	/* var n = prompt("검색하실 데이터 번호를 입력하세요","");
+    	location.href = detailurl+=n;  */
     }
-}
+  }
 </script>
 </html>
