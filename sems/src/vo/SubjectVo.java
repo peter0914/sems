@@ -1,4 +1,4 @@
-package servlets.subjects;
+package vo;
 
 /*
  * setter/getter 적용 <= encapsulation

@@ -1,4 +1,4 @@
-package servlets.subjects;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * SubjectVo의 setter/getter 사용
- */
+import util.DBConnectionPool;
+import vo.SubjectVo;
+
 public class MysqlSubjectDao implements SubjectDao{
   DBConnectionPool dbConnectionPool;
   
@@ -41,7 +41,7 @@ public class MysqlSubjectDao implements SubjectDao{
     try{
       con = dbConnectionPool.getConnection();
       stmt = con.prepareStatement("select SNO, TITLE from SE_SUBJS"
-          + " order by SNO asc limit ?, ?");
+          + " order by SNO desc limit ?, ?");
       stmt.setInt(1, (pageNo-1)*pageSize);
       stmt.setInt(2, pageSize);
       rs = stmt.executeQuery();
@@ -87,7 +87,7 @@ public class MysqlSubjectDao implements SubjectDao{
     }
   }
   
-  public int update(SubjectVo subject) throws Throwable{
+  public void update(SubjectVo subject) throws Throwable{
     Connection con = null;
     PreparedStatement stmt = null;
     try{
@@ -99,7 +99,7 @@ public class MysqlSubjectDao implements SubjectDao{
       stmt.setString(1, subject.getTitle());
       stmt.setString(2, subject.getDescription());
       stmt.setInt(3, subject.getNo());
-      return stmt.executeUpdate();
+      stmt.executeUpdate();
     }catch(Throwable e){
       throw e;
     } finally{
@@ -107,14 +107,14 @@ public class MysqlSubjectDao implements SubjectDao{
     }
   }
   
-  public int delete(int no) throws Throwable{
+  public void delete(int no) throws Throwable{
     Connection con = null;
     PreparedStatement stmt = null;
     try{
       con = dbConnectionPool.getConnection();
       stmt = con.prepareStatement("delete from SE_SUBJS where SNO=?");
       stmt.setInt(1, no);
-      return stmt.executeUpdate();
+      stmt.executeUpdate();
     }catch(Throwable e){
       throw e;
     } finally{
