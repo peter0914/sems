@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 // 오호라... ㅎㅎㅎㅎㅎ
 
+// 응답하라 오바
+
 /*
  * Pooling 기법
  *  - 적은 자원을 효율적으로 사용
