@@ -16,7 +16,7 @@
   <option value="5">detail</option>
 </select>
 
-<div id="insertBox">
+<div id="insertBox" style="display:none">
 <form>
 과정명 : <input type="text" name="name"><br>
 설명 : <input type="text" name="tel"><br>
@@ -24,7 +24,7 @@
 <input type="submit" value="등록">
 </form>
 </div>
-<div id="updateBox">
+<div id="updateBox" style="display:none">
 <form>
 강의번호 : <input type="text" name="no"><br>
 과정명 : <input type="text" name="name"><br>
@@ -33,19 +33,19 @@
 <input type="submit" value="등록">
 </form>
 </div>
-<div id="deleteBox">
+<div id="deleteBox" style="display:none">
 <form>
 강의번호 : <input type="text" name="no"><br>
 <input type="submit" value="등록">
 </form>
 </div>
-<div id="detailBox">
+<div id="detailBox" style="display:none">
 <form>
 강의번호 : <input type="text" name="no"><br>
 <input type="submit" value="등록">
 </form>
 </div>
-<div id="listBox">
+<div id="listBox" style="display:none">
 <form>
 강의번호 : <input type="text" name="no"><br>
 <input type="submit" value="등록">
@@ -62,13 +62,27 @@ var detailurl= "http://localhost:9999/semst/course/detail.bit?no=";
 
 function leaveChange() {
     if (document.getElementById("leave").value == "1"){
-    	var title = prompt("과정 이름을 입력하세요.",""); 
+    	
+    	$("#insertBox").css("display", "");
+    	$("#updateBox").css("display", "none");
+    	$("#listBox").css("display", "none");
+    	$("#deleteBox").css("display", "none");
+    	$("#detailBox").css("display", "none");
+    	
+    	var title = $("#insertBox"); 
     	var dest = prompt("과정 설명을 입력하세요." ,"");
     	var hour = prompt("과정 시간을 입력하세요." ,"");
     	inserturl+="title="+title+"&"+"description="+dest+"&"+"time="+hour;
-    	location.href = inserturl;
+    	location.href = inserturl; */
     }     
     else if (document.getElementById("leave").value == "2"){
+    	
+    	$("#insertBox").css("display", "none");
+      $("#updateBox").css("display", "");
+      $("#listBox").css("display", "none");
+      $("#deleteBox").css("display", "none");
+      $("#detailBox").css("display", "none");
+        
     	var no = prompt("수정하실 과정정보의 번호를 입력하세요.",""); 
     	var title = prompt("변경하실 이름을 입력하세요" ,"");
     	var dest = prompt("정보를 입력하세요" ,"");
@@ -76,16 +90,37 @@ function leaveChange() {
     	location.href = updateurl+="no="+no+"&title="+title+"&description="+dest+"&time="+hour;
     }
     else if (document.getElementById("leave").value == "3"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "");
+        $("#deleteBox").css("display", "none");
+        $("#detailBox").css("display", "none");
+    	
     	var sn = prompt("조회하실 페이지 번호를 입력하세요", "");
     	var sz = prompt("출력하실 데이터 개수를 입력하세요", "");
     	location.href = listurl+="pageNo="+sn+"&pageSize="+sz; 
     }
     else if (document.getElementById("leave").value == "4"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "none");
+        $("#deleteBox").css("display", "");
+        $("#detailBox").css("display", "none");
+    	
     	var n = prompt("삭제하실 데이터 번호를 입력하세요.","");
     	location.href = deleteurl+=n;
     	
     }
     else if (document.getElementById("leave").value == "5"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "none");
+        $("#deleteBox").css("display", "none");
+        $("#detailBox").css("display", "");
+    	
     	var n = prompt("검색하실 데이터 번호를 입력하세요","");
     	location.href = detailurl+=n; 
     }
