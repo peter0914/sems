@@ -1,16 +1,8 @@
 package subject;
-// 주석 테스트
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 
-// 오호라... ㅎㅎㅎㅎㅎ
-// 음.............. 자바,,,,
-// 응답하라 오바
-
-
-//주석을 테스트 하는 것
-// 성호 힘내라 앞으로 각자 편집해야되면 정신 차려라
 
 public class DBConnectionPool {
   ArrayList<Connection> list = new ArrayList<Connection>();
