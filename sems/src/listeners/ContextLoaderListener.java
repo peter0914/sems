@@ -27,6 +27,7 @@ public class ContextLoaderListener implements ServletContextListener {
   public void contextInitialized(ServletContextEvent event) {
     System.out.println("contextInitialized...");
     ServletContext sc = event.getServletContext();
+    System.out.println("chk");
     dbConnectionPool = new DBConnectionPool();
     dbConnectionPool.setDriver(sc.getInitParameter("driver"));
     dbConnectionPool.setUrl(sc.getInitParameter("url"));
