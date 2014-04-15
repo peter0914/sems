@@ -28,10 +28,10 @@
 </body>
 <script>
 var inserturl ="http://localhost:9999/semst/course/insert.bit?";
-var updateurl;
-var listurl;
-var deleteurl;
-var detailurl="http://localhost:9999/semst/course/detail.bit?no=";
+var updateurl = "http://localhost:9999/semst/course/update.bit?";
+var listurl= "http://localhost:9999/semst/course/list.bit?";
+var deleteurl= "http://localhost:9999/semst/course/delete.bit?no=";
+var detailurl= "http://localhost:9999/semst/course/detail.bit?no=";
 
 function leaveChange() {
     if (document.getElementById("leave").value == "1"){
@@ -42,18 +42,25 @@ function leaveChange() {
     	location.href = inserturl;
     }     
     else if (document.getElementById("leave").value == "2"){
-    	location.href = "http://localhost:9999/semst/course/update.bit?";
+    	var no = prompt("수정하실 과정정보의 번호를 입력하세요.",""); 
+    	var title = prompt("변경하실 이름을 입력하세요" ,"");
+    	var dest = prompt("변경하실 설명을 입력하세요" ,"");
+    	var hour = prompt("변경하실 시간을 입력하세요" ,"");
+    	location.href = updateurl+="no="+no+"&title="+title+"&description="+dest+"&time="+hour;
     }
     else if (document.getElementById("leave").value == "3"){
-    	location.href = "http://localhost:9999/semst/course/list.bit?";
+    	var sn = prompt("조회하실 페이지 번호를 입력하세요", "");
+    	var sz = prompt("조회하실 페이지의 출력 갯수를 입력하세요", "");
+    	location.href = listurl+="pageNo="+sn+"&pageSize="+sz; 
     }
     else if (document.getElementById("leave").value == "4"){
-    	location.href = "http://localhost:9999/semst/course/delete.bit?";
+    	var n = prompt("삭제하실 데이터 번호를 입력하세요.","");
+    	location.href = deleteurl+=n;
+    	
     }
     else if (document.getElementById("leave").value == "5"){
     	var n = prompt("검색하실 데이터 번호를 입력하세요","");
-    	detailurl+=n;
-    	location.href = detailurl;
+    	location.href = detailurl+=n; 
     }
 }
 </script>
