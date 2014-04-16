@@ -34,9 +34,11 @@ public class UserInsertServlet extends HttpServlet{
     try{
       UserDao dao = (UserDao)this.getServletContext()
           .getAttribute("userDao");
+      out.println("chk");
       
       UserVo vo = new UserVo();
       vo.setEmail(request.getParameter("email"));
+      out.println(request.getParameter("password"));
       vo.setPwd(request.getParameter("password"));
       vo.setName(request.getParameter("name"));
       vo.setTel(request.getParameter("tel"));

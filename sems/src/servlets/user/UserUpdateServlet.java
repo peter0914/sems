@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vo.SubjectVo;
-import dao.SubjectDao;
+import vo.UserVo;
+import dao.UserDao;
 
 @SuppressWarnings("serial")
 @WebServlet("/user/update.bit")
@@ -24,9 +24,9 @@ public class UserUpdateServlet extends HttpServlet{
     out.println("<html><head><title>사용자변경</title></head><body>");
     try{
       int no = Integer.parseInt(request.getParameter("no"));
-      SubjectDao dao = (SubjectDao)this.getServletContext()
-          .getAttribute("subjectDao");
-      SubjectVo vo = dao.detail(no);
+      UserDao dao = (UserDao)this.getServletContext()
+          .getAttribute("userDao");
+      UserVo vo = dao.detail(no);
       
       out.println("<!DOCTYPE html>");
       out.println("<html>");
@@ -40,12 +40,24 @@ public class UserUpdateServlet extends HttpServlet{
       out.println("번호 : <input type='text' name='no' value='" 
           + vo.getNo() 
           + "' readonly><br>");
-      out.println("과목명 : <input type='text' name='title' value='"
-          + vo.getTitle()
+      out.println("이름 : <input type='text' name='name' value='"
+          + vo.getName()
           + "'><br>");
-      out.println("설명 : <textarea rows='10' cols='80' name='description'>"
-          + vo.getDescription()
-          + "</textarea><br>");
+      out.println("전화번호 : <input type='text' name='tel' value='"
+          + vo.getTel()
+          + "'><br>");
+      out.println("이메일 : <input type='text' name='email' value='"
+          + vo.getEmail()
+          + "'><br>");
+      out.println("팩스 : <input type='text' name='fax' value='"
+          + vo.getFax()
+          + "'><br>");
+      out.println("우편번호 : <input type='text' name='postno' value='"
+          + vo.getPostno()
+          + "'><br>");
+      out.println("주소 : <input type='text' name='addr' value='"
+          + vo.getAddr()
+          + "'><br>");
       out.println("<input type='submit' value='변경'>");
       out.println("<input type='button' value='취소'"); 
       out.println("onclick='location.href=\"detail.bit?no="
@@ -68,16 +80,20 @@ public class UserUpdateServlet extends HttpServlet{
     
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과목변경</title></head><body>");
-    out.println("<h1>과목 변경</h1>");
+    out.println("<html><head><title>사용자변경</title></head><body>");
+    out.println("<h1>사용자 변경</h1>");
     try{
-      SubjectDao dao = (SubjectDao)this.getServletContext()
-          .getAttribute("subjectDao");
+      UserDao dao = (UserDao)this.getServletContext()
+          .getAttribute("userDao");
       
-      SubjectVo vo = new SubjectVo();
+      UserVo vo = new UserVo();
       vo.setNo(Integer.parseInt(request.getParameter("no")));
-      vo.setTitle(request.getParameter("title"));
-      vo.setDescription(request.getParameter("description"));
+      vo.setName(request.getParameter("name"));
+      vo.setEmail(request.getParameter("email"));
+      vo.setFax(request.getParameter("fax"));
+      vo.setTel(request.getParameter("tel"));
+      vo.setPostno(request.getParameter("postno"));
+      vo.setAddr(request.getParameter("addr"));
       
       dao.update(vo);
       

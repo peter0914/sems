@@ -105,15 +105,15 @@ public class MysqlUserDao implements UserDao{
     try{
       con = dbConnectionPool.getConnection();
       stmt = con.prepareStatement("update SE_USERS"
-          + " set EMAIL=?, PWD=?, NAME=?, TEL=?, FAX=?, POSTNO=?, ADDR=?"
+          + " set EMAIL=?, NAME=?, TEL=?, FAX=?, POSTNO=?, ADDR=?"
           + " where UNO=?");
       stmt.setString(1, user.getEmail());
-      stmt.setString(2, user.getPwd());
-      stmt.setString(3, user.getName());
-      stmt.setString(4, user.getTel());
-      stmt.setString(5, user.getFax());
-      stmt.setString(6, user.getPostno());
-      stmt.setString(7, user.getAddr());
+      stmt.setString(2, user.getName());
+      stmt.setString(3, user.getTel());
+      stmt.setString(4, user.getFax());
+      stmt.setString(5, user.getPostno());
+      stmt.setString(6, user.getAddr());
+      stmt.setInt(7, user.getNo());
       stmt.executeUpdate();
     }catch(Throwable e){
       throw e;
