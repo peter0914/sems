@@ -22,11 +22,8 @@ public class CourseListServlet extends HttpServlet{
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과정 목록</title>");
-    out.println("<style>");
-    out.println("body{text-align:center;background-color:#E3F4E3}");
-    out.println("div{width:500px;margin:auto}");
-    out.println("</style>");
+    out.println("<html><head><title>과정 목록</title></head><body>");
+    out.println("<h1>과정 목록</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
             .getAttribute("courseDao");
@@ -35,30 +32,31 @@ public class CourseListServlet extends HttpServlet{
       int pageSize = Integer.parseInt(request.getParameter("pageSize"));
       List<CourseVo> list = dao.list(pageNo, pageSize);
       
-      out.println("</head><body>");
-      out.println("<h1>과정 목록</h1>");
-      out.println("<a href='index.html'>메인화면으로</a>");
-      out.println("<div><table border='1' width=490px>");
+      out.println("<a href='form.html'>새과정</a><br>");
+      out.println("<table border='1'");
       out.println("<tr>");
       out.println("<th>번호</th>");
-      out.println("<th>과목명</th>");
+      out.println("<th>과정명</th>");
+      out.println("<th>교육시간</th>");
       out.println("</tr>");
       
       for(CourseVo course : list){
         out.println("<tr><td>");
         out.println(course.getNo());
         out.println("</td>");
+				out.println("	<td><a href='detail.bit?no="
+						+ course.getNo()
+						+ "'>" + course.getTitle() + "</a></td>");
+        
         out.println("<td>");
-        out.println(course.getTitle());
+        out.println( course.getTime());
         out.println("</td></tr>");
       }
-      out.println("</table></div>");
+      out.println("</table>");
     }catch(Throwable e){
-      out.println("<meta http-equiv='refresh'");
-      out.println(" content='2;url=http://192.168.200.27:9999/sems/course'>");
-      out.println("</head><body>");
-      out.println("<h1>과정 목록</h1>");
+      out.println(e);
       out.println("오류 발생");
+      e.printStackTrace();
     }
     out.println("</body></html>");
   }

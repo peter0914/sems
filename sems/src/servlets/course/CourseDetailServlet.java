@@ -21,11 +21,8 @@ public class CourseDetailServlet extends HttpServlet{
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>상세정보</title>");
-    out.println("<style>");
-    out.println("body{text-align:center;background-color:#E3F4E3}");
-    out.println("div{width:500px;margin:auto}");
-    out.println("</style>");
+    out.println("<html><head><title>상세정보</title></head><body>");
+    out.println("<h1>과정 상세정보</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
           .getAttribute("courseDao");
@@ -33,10 +30,7 @@ public class CourseDetailServlet extends HttpServlet{
       int no = Integer.parseInt(request.getParameter("no"));
       CourseVo course = dao.detail(no);
       
-      out.println("</head><body>");
-      out.println("<h1>과정 상세정보</h1>");
-      out.println("<a href='index.html'>메인화면으로</a>");
-      out.println("<div><table border='1' width=490px>");
+      out.println("<table border='1'>");
       out.println("<tr>");
       out.println("<th>번호</th>");
       out.println("<td>"+course.getNo()+"</td>");
@@ -56,13 +50,18 @@ public class CourseDetailServlet extends HttpServlet{
       out.println("<td>"+course.getTime()+"</td>");
       out.println("</tr>");
       
-      out.println("</table></div>");
+			out.println("</table>");
+			out.println("<a href='list.bit?pageNo=1&pageSize=10'>목록</a> ");
+			out.println("<a href='delete.bit?no="
+					+ course.getNo()
+					+ "'>삭제</a> ");
+			out.println("<a href='update.bit?no="
+					+ course.getNo()
+					+ "'>변경</a><br>");
+      
     }catch(Throwable e){
-      out.println("<meta http-equiv='refresh'");
-      out.println(" content='2;url=http://192.168.200.27:9999/sems/course'>");
-      out.println("</head><body>");
-      out.println("<h1>과정 상세정보</h1>");
-      out.println("오류 발생<br>");
+    	out.println("오류 발생");
+      out.println(e);
     }
     out.println("</body></html>");
   }

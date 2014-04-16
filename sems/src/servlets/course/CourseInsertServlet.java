@@ -16,6 +16,13 @@ import dao.CourseDao;
 @WebServlet("/course/insert.bit")
 public class CourseInsertServlet extends HttpServlet{
 
+	@Override
+	protected void doPost(
+			HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	  doGet(request, response);
+	}
+	
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
@@ -23,13 +30,7 @@ public class CourseInsertServlet extends HttpServlet{
     
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과정등록</title>");
-    out.println("<meta http-equiv='refresh'");
-    out.println(" content='2;url=http://192.168.200.27:9999/sems/course'>");
-    out.println("<style>");
-    out.println("body{background-color:#E3F4E3}");
-    out.println("</style>");
-    out.println("</head><body>");
+    out.println("<html><head><title>과정등록</title></head><body>");
     out.println("<h1>과정 등록 결과</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
@@ -43,10 +44,12 @@ public class CourseInsertServlet extends HttpServlet{
       dao.insert(vo);
       
       out.println("등록 성공!");
+      response.setHeader("Refresh", "1;url=list.bit?pageNo=1&pageSize=10");
+      
     }catch(Throwable e){
+      out.println(e);
       out.println("오류 발생");
     }
-    out.println("<br><br>잠시 후 메인 페이지로 이동합니다.");
     out.println("</body></html>");
   }
   
