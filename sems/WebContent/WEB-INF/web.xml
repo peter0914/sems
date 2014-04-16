@@ -23,6 +23,20 @@
     <listener-class>listeners.ContextLoaderListener</listener-class>
   </listener> 
   
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>filters.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>charset</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>*.bit</url-pattern>
+  </filter-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
