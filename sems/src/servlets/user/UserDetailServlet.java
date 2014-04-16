@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vo.SubjectVo;
-import dao.SubjectDao;
+import vo.UserVo;
+import dao.UserDao;
 
 @SuppressWarnings("serial")
 @WebServlet("/user/detail.bit")
@@ -22,37 +22,35 @@ public class UserDetailServlet extends HttpServlet{
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>상세정보</title></head><body>");
-    out.println("<h1>과목 상세정보</h1>");
+    out.println("<h1>사용자 상세정보</h1>");
     try{
-      SubjectDao dao = (SubjectDao)this.getServletContext()
-          .getAttribute("subjectDao");
+      UserDao dao = (UserDao)this.getServletContext()
+          .getAttribute("userDao");
       
       int no = Integer.parseInt(request.getParameter("no"));
-      SubjectVo subject = dao.detail(no);
+      UserVo user = dao.detail(no);
       
       out.println("<table border='1'");
       out.println("<tr>");
       out.println("<th>번호</th>");
-      out.println("<td>"+subject.getNo()+"</td>");
+      out.println("<td>"+user.getNo()+"</td>");
       out.println("</tr>");
       out.println("<tr>");
-      out.println("<th>과목명</th>");
-      out.println("<td>"+subject.getTitle()+"</td>");
+      out.println("<th>사용자명</th>");
+      out.println("<td>"+user.getName()+"</td>");
       out.println("</tr>");
       out.println("<tr>");
-      out.println("<th>내용</th>");
-      out.println("<td><textarea row='5' cols'60' readonly>"
-          +subject.getDescription()
-          +"</textarea></td>");
+      out.println("<th>전화</th>");
+      out.println("<td>"+user.getDescription()+"</textarea></td>");
       out.println("</tr>");
       
       out.println("</table>");
       out.println("<a href='list.bit?pageNo=1&pageSize=10'>목록</a><br>");
       out.println("<a href='delete.bit?no="
-          + subject.getNo()
+          + user.getNo()
           + "'>삭제</a> ");
       out.println("<a href='update.bit?no="
-          + subject.getNo()
+          + user.getNo()
           + "'>변경</a><br>");
     }catch(Throwable e){
       out.println(e);

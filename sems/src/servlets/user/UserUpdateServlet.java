@@ -21,7 +21,7 @@ public class UserUpdateServlet extends HttpServlet{
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과목변경</title></head><body>");
+    out.println("<html><head><title>사용자변경</title></head><body>");
     try{
       int no = Integer.parseInt(request.getParameter("no"));
       SubjectDao dao = (SubjectDao)this.getServletContext()
@@ -32,10 +32,10 @@ public class UserUpdateServlet extends HttpServlet{
       out.println("<html>");
       out.println("<head>");
       out.println("<meta charset='UTF-8'>");
-      out.println("<title>과목변경폼</title>");
+      out.println("<title>사용자변경폼</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("<h1>과목 변경</h1>");
+      out.println("<h1>사용자 변경</h1>");
       out.println("<form action='update.bit' method='post'>");
       out.println("번호 : <input type='text' name='no' value='" 
           + vo.getNo() 

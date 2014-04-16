@@ -25,15 +25,9 @@ public class UserDeleteServlet extends HttpServlet{
     try{
       UserDao dao = (UserDao)this.getServletContext()
           .getAttribute("userDao");
-      
       int no = Integer.parseInt(request.getParameter("no"));
-      
       dao.delete(no);
-      
       out.println("삭제 성공!");
-      
-      // 3) Redirect 처리
-      //  - contents를 출력하지 않기 때문에 이전의 출력은 취소된다.
       response.sendRedirect("list.bit?pageNo=1&pageSize=10");
     }catch(Throwable e){
       out.println(e);
