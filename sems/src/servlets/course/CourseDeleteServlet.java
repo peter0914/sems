@@ -22,7 +22,10 @@ public class CourseDeleteServlet extends HttpServlet{
     
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과정변경</title></head><body>");
+    out.println("<html><head><title>과정변경</title>");
+    out.println("<meta http-equiv='refresh'");
+    out.println(" content='1;url=http://192.168.200.27:9999/sems/course'>");
+    out.println("</head><body>");
     out.println("<h1>과정 삭제 결과</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
@@ -32,11 +35,12 @@ public class CourseDeleteServlet extends HttpServlet{
       
       dao.delete(no);
       
-      out.println("삭제 성공!");
+      out.println("삭제 성공!<br>");
     }catch(Throwable e){
       out.println(e);
-      out.println("오류 발생");
+      out.println("오류 발생<br>");
     }
+    out.println("<br>잠시 후 메인 페이지로 이동합니다.");
     out.println("</body></html>");
   }
   

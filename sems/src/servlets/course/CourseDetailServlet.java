@@ -52,8 +52,7 @@ public class CourseDetailServlet extends HttpServlet{
       
       out.println("</table>");
     }catch(Throwable e){
-      out.println(e);
-      out.println("오류 발생");
+      out.println("오류 발생<br>");
     }
     out.println("</body></html>");
   }

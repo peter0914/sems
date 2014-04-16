@@ -19,7 +19,6 @@
     <param-value>study</param-value>
   </context-param>
     
-  <!-- ServletContextListener 등록 -->
   <listener>
     <listener-class>listeners.ContextLoaderListener</listener-class>
   </listener> 

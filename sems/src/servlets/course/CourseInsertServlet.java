@@ -23,7 +23,10 @@ public class CourseInsertServlet extends HttpServlet{
     
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과정등록</title></head><body>");
+    out.println("<html><head><title>과정등록</title>");
+    out.println("<meta http-equiv='refresh'");
+    out.println(" content='1;url=http://192.168.200.27:9999/sems/course'>");
+    out.println("</head><body>");
     out.println("<h1>과정 등록 결과</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
@@ -41,6 +44,7 @@ public class CourseInsertServlet extends HttpServlet{
       out.println(e);
       out.println("오류 발생");
     }
+    out.println("<br><br>잠시 후 메인 페이지로 이동합니다.");
     out.println("</body></html>");
   }
   
