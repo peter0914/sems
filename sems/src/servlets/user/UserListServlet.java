@@ -22,7 +22,9 @@ public class UserListServlet extends HttpServlet{
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>사용자 목록</title></head><body>");
+    out.println("<html><head><title>사용자 목록</title>");
+    out.println("<link rel='stylesheet' type='text/css' href='../sems.css'>");
+    out.println("</head><body>");
     out.println("<h1>사용자 목록</h1>");
     try{
       UserDao dao = (UserDao)this.getServletContext()
@@ -33,7 +35,7 @@ public class UserListServlet extends HttpServlet{
       List<UserVo> list = dao.list(pageNo, pageSize);
       
       out.println("<a href='form.html'>새 사용자</a><br>");
-      out.println("<table border='1'");
+      out.println("<table>");
       out.println("<tr>");
       out.println("<th>번호</th>");
       out.println("<th>이름</th>");
@@ -42,10 +44,10 @@ public class UserListServlet extends HttpServlet{
       out.println("</tr>");
       
       for(UserVo user : list){
-        out.println("<tr><td>");
+        out.println("<tr><td class='centerRow'>");
         out.println(user.getNo());
         out.println("</td>");
-        out.println("<td><a href='detail.bit?no="
+        out.println("<td class='centerRow'><a href='detail.bit?no="
             + user.getNo()
             + "'>");
         out.println(user.getName());
@@ -56,7 +58,6 @@ public class UserListServlet extends HttpServlet{
       }
       out.println("</table>");
     }catch(Throwable e){
-      out.println(e);
       out.println("오류 발생");
     }
     out.println("</body></html>");

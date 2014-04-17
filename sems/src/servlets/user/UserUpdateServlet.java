@@ -33,6 +33,7 @@ public class UserUpdateServlet extends HttpServlet{
       out.println("<head>");
       out.println("<meta charset='UTF-8'>");
       out.println("<title>사용자변경폼</title>");
+      out.println("<link rel='stylesheet' type='text/css' href='../sems.css'>");
       out.println("</head>");
       out.println("<body>");
       out.println("<h1>사용자 변경</h1>");
@@ -80,7 +81,9 @@ public class UserUpdateServlet extends HttpServlet{
     
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>사용자변경</title></head><body>");
+    out.println("<html><head><title>사용자변경</title>");
+    out.println("<link rel='stylesheet' type='text/css' href='../sems.css'>");
+    out.println("</head><body>");
     out.println("<h1>사용자 변경</h1>");
     try{
       UserDao dao = (UserDao)this.getServletContext()
@@ -102,7 +105,6 @@ public class UserUpdateServlet extends HttpServlet{
       response.sendRedirect("detail.bit?no="+vo.getNo());
       
     }catch(Throwable e){
-      out.println(e);
       out.println("오류 발생");
     }
     out.println("</body></html>");

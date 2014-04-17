@@ -21,7 +21,9 @@ public class UserDetailServlet extends HttpServlet{
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    out.println("<html><head><title>상세정보</title></head><body>");
+    out.println("<html><head><title>상세정보</title>");
+    out.println("<link rel='stylesheet' type='text/css' href='../sems.css'>");
+    out.println("</head><body>");
     out.println("<h1>사용자 상세정보</h1>");
     try{
       UserDao dao = (UserDao)this.getServletContext()
@@ -30,14 +32,14 @@ public class UserDetailServlet extends HttpServlet{
       int no = Integer.parseInt(request.getParameter("no"));
       UserVo user = dao.detail(no);
       
-      out.println("<table border='1'");
+      out.println("<table>");
       out.println("<tr>");
       out.println("<th>번호</th>");
-      out.println("<td>"+user.getNo()+"</td>");
+      out.println("<td class='centerRow'>"+user.getNo()+"</td>");
       out.println("</tr>");
       out.println("<tr>");
       out.println("<th>이름</th>");
-      out.println("<td>"+user.getName()+"</td>");
+      out.println("<td class='centerRow'>"+user.getName()+"</td>");
       out.println("</tr>");
       out.println("<tr>");
       out.println("<th>전화</th>");
@@ -69,7 +71,6 @@ public class UserDetailServlet extends HttpServlet{
           + user.getNo()
           + "'>변경</a><br>");
     }catch(Throwable e){
-      out.println(e);
       out.println("오류 발생");
     }
     out.println("</body></html>");

@@ -30,7 +30,6 @@ public class UserDeleteServlet extends HttpServlet{
       out.println("삭제 성공!");
       response.sendRedirect("list.bit?pageNo=1&pageSize=10");
     }catch(Throwable e){
-      out.println(e);
       out.println("오류 발생");
     }
     out.println("</body></html>");
