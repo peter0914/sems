@@ -1,29 +1,36 @@
-<%@page import="vo.SubjectVo"%>
+<%@page import="vo.CourseVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-List<SubjectVo> list = (List<SubjectVo>)request.getAttribute("list");
-%>
+<% 
+List<CourseVo> list = 
+  (List<CourseVo>) request.getAttribute("list"); 
+%>    
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>과목 목록</title>
+
+<title>과정 목록</title>
 </head>
 <body>
-<h1>과목 목록 by JSP</h1>
-<a href='form.html'>새과목</a><br>
+<h1>과정 목록(byJSP)</h1>
+<a href='form.html'>새과정</a><br>
 <table border='1'>
 <tr>
 <th>번호</th>
-<th>과목명</th>
+<th>과정명</th>
+<th>교육시간</th>
 </tr>
-<%for(SubjectVo vo : list){%>
+<%for(CourseVo course : list) {%>
 <tr>
-<td><%=vo.getNo()%></td>
-<td><a href='detail.bit?no=<%=vo.getNo()%>'><%=vo.getTitle()%></a></td>
+  <td><%=course.getNo()%></td>
+  <td><a href='detail.bit?no=<%=course.getNo()%>'><%=course.getTitle()%></a></td>
+  <td><%=course.getTime()%></td>
 </tr>
 <%}%>
+
 </table>
 </body></html>
+
+
