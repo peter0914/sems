@@ -20,10 +20,6 @@ public class CourseDeleteServlet extends HttpServlet{
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
     
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-    out.println("<html><head><title>과정변경</title></head><body>");
-    out.println("<h1>과정 삭제 결과</h1>");
     try{
       CourseDao dao = (CourseDao)this.getServletContext()
           .getAttribute("courseDao");
@@ -31,16 +27,10 @@ public class CourseDeleteServlet extends HttpServlet{
       int no = Integer.parseInt(request.getParameter("no"));
       
       dao.delete(no);
-      
-      out.println("삭제 성공!");
-      
-      
       response.sendRedirect("list.bit?pageNo=1&pageSize=10");
     }catch(Throwable e){
-      out.println(e);
-      out.println("오류 발생");
+			e.printStackTrace();
     }
-    out.println("</body></html>");
   }
   
 }
