@@ -10,11 +10,10 @@ List<SubjectVo> list = (List<SubjectVo>)request.getAttribute("list");
 <head>
   <meta charset="UTF-8">
   <title>과목 목록</title>
-  <link rel="stylesheet" type="text/css" href="../sems.css">
+  <%@include file="../header.inc"%>
 </head>
 <body>
-<div class="topbar"></div>
-<div class="content">
+<%@include file="../body.inc"%>
 <h1>과목 목록 by JSP</h1>
 <a href='form.html'>새과목</a><br>
 <table>
@@ -29,5 +28,5 @@ List<SubjectVo> list = (List<SubjectVo>)request.getAttribute("list");
 </tr>
 <%}%>
 </table>
-</div>
+<%@include file="../footer.inc"%>
 </body></html>

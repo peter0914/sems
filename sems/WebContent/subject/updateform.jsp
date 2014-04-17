@@ -7,11 +7,10 @@
 <head>
   <meta charset="UTF-8">
   <title>과목 수정</title>
-  <link rel="stylesheet" type="text/css" href="../sems.css">
+  <%@include file="../header.inc"%>
 </head>
 <body>
-<div class="topbar"></div>
-<div class="content">
+<%@include file="../body.inc"%>
 <h1>과목 변경 by JSP</h1>
 <form action="update.bit" method="post">
 번호 : <input type="text" name="no" value="<%=vo.getNo()%>" readonly><br>
@@ -20,5 +19,5 @@
 <input type="submit" value="변경">
 <input type="button" value="취소" onclick="location.href='detail.bit?no=<%=vo.getNo()%>'">
 </form>
-</div>
+<%@include file="../footer.inc"%>
 </body></html>

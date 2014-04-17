@@ -6,11 +6,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="Refresh" content="1;url=list.bit?pageNo=1&pageSize=10">
   <title>과목 등록 결과</title>
-  <link rel="stylesheet" type="text/css" href="../sems.css">
+  <%@include file="../header.inc"%>
 </head>
 <body>
-<div class="topbar"></div>
-<div class="content">
+<%@include file="../body.inc"%>
 <p>과목 등록 성공입니다.</p>
-</div>
+<%@include file="../footer.inc"%>
 </body></html>

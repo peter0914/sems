@@ -7,11 +7,10 @@
 <head>
   <meta charset="UTF-8">
   <title>과목 상세정보 by JSP</title>
-  <link rel="stylesheet" type="text/css" href="../sems.css">
+  <%@include file="../header.inc"%>
 </head>
 <body>
-<div class="topbar"></div>
-<div class="content">
+<%@include file="../body.inc"%>
 <h1>과목 상세정보 by JSP</h1>
 <table>
 <tr>
@@ -30,5 +29,5 @@
 <a href='list.bit?pageNo=1&pageSize=10'>목록</a><br>
 <a href='delete.bit?no=<%=vo.getNo()%>'>삭제</a> 
 <a href='update.bit?no=<%=vo.getNo()%>'>변경</a><br>
-</div>
+<%@include file="../footer.inc"%>
 </body></html>
