@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+body{
+  background-color: #C0DEED;
+  background-image: url("https://abs.twimg.com/images/themes/theme1/bg.png");
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+table{
+  margin : auto;
+}
+
+h{
+  color : #045FB4;
+}
+
+th, td{
+  color : gray;
+  background-color : white;
+  border-radius : 6px;
+}
+
+th:hover{
+  background-color: #E0F8E6;
+}
+
+td:hover{
+  background-color: #E0F8E6;
+}
+
+a{
+  text-decoration: none;
+  color : #045FB4;
+}
+
+.centerRow{
+  text-align: center;
+}
