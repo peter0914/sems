@@ -1,20 +1,102 @@
 @CHARSET "UTF-8";
 
+@font-face{
+  font-family:'n3c';
+  src:url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.eot');
+  src:url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+      url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.woff') format('woff'),
+      url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.ttf') format('truetype');
+  font-style:normal;font-weight:normal
+}
+
 body{
   background-color: #C0DEED;
   background-image: url("https://abs.twimg.com/images/themes/theme1/bg.png");
   background-repeat: no-repeat;
   text-align: center;
+  color: gray;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+ul{
+  position: relative;
+  list-style: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+li{
+  height: 47px;
+  float: left;
+  overflow: hidden;
+}
+
+.navi{
+  color: #66757f;
+  margin-left: 30px;
+  width: auto;  
+}
+
+.navi .icon{
+  float: left;
+  width : 23px;
+  height: 23px;
+  font-size: 22px;
+  margin: 14px 0 0 10px;
+}
+
+.navi a{
+  color: #66757f;
+  display: block;
+  height: 47px;
+  padding: 0 14px 0 4px;
+  border-bottom: 4px solid #0084b4;
+}
+
+.navi a:hover{
+  color: #0084b4;
+  height: 43px;
+  transition: all .15s ease-in-out;
+}
+
+.navi .text{
+  float: left;
+  position: relative;
+  margin: 14px 0 0 3px;
+  padding: 0;
+}
+
+.icon{
+  font-family: "n3c";
+}
+
+.icon-subject:before{
+  content: "\f02d";
+}
+
+.icon-course:before{
+  content: "\f03a";
+}
+
+.icon-user:before{
+  content: "\f183";
 }
 
 .topbar{
   height : 47px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: white;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1000;
+}
+
+.content{
+  margin-top : 60px;
 }
 
 table{
@@ -41,7 +123,6 @@ td:hover{
 
 a{
   text-decoration: none;
-  color : #045FB4;
 }
 
 .centerRow{

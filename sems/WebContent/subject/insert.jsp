@@ -9,5 +9,8 @@
   <link rel="stylesheet" type="text/css" href="../sems.css">
 </head>
 <body>
+<div class="topbar"></div>
+<div class="content">
 <p>과목 등록 성공입니다.</p>
+</div>
 </body></html>

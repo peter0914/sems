@@ -13,6 +13,8 @@ List<SubjectVo> list = (List<SubjectVo>)request.getAttribute("list");
   <link rel="stylesheet" type="text/css" href="../sems.css">
 </head>
 <body>
+<div class="topbar"></div>
+<div class="content">
 <h1>과목 목록 by JSP</h1>
 <a href='form.html'>새과목</a><br>
 <table>
@@ -27,4 +29,5 @@ List<SubjectVo> list = (List<SubjectVo>)request.getAttribute("list");
 </tr>
 <%}%>
 </table>
+</div>
 </body></html>
