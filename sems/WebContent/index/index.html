@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과정 관리 페이지</title>
+<style>
+#warp{width: 100%}
+#con{ margin-top:20px; position: absolute; top:240px; left:510px  }
+#leave{margin-bottom:10px}
+#submit{margin-top:10px }
+#imgg{width: 900px}
+#nam{ position: absolute; top:333px; left:160px; line-height: 20px; color: #5d5d5d }
+#namm{position: absolute; top:230px; left:480px; line-height: 50px; color: #5d5d5d; font-size: 35px }
+li{list-style: none;}
+a{color:black; text-decoration: none}
+
+
+</style>
+
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="warp">
+<div id="imgg"><img id="imgg" src="img/22.png"></div>
+<div id="nam"><ul><li>한태희</li><li>박헌웅</li><li>김성호</li></ul></div>
+
+<div id="namm"><ul><li><a href="http://192.168.200.27:9999/user.bit?pageNo=1&pageSize=10">사용자정보</a></li><li><a href="http://192.168.200.27:9999/subject.bit?pageNo=1&pageSize=10">과목정보</a></li><li><a href="http://192.168.200.27:9999/course.bit?pageNo=1&pageSize=10">교육과정정보</a></li></ul></div>
+
+
+
+
+</div>
+
+</body>
+<script>
+  function leaveChange() {
+    if (document.getElementById("leave").value == "1"){
+    	
+    	$("#insertBox").css("display", "");
+    	$("#updateBox").css("display", "none");
+    	$("#listBox").css("display", "none");
+    	$("#deleteBox").css("display", "none");
+    	$("#detailBox").css("display", "none");
+    	
+    	
+    	console.log($("#leave").attr("value"));
+    	//var title = $("#insertBox"); 
+    	//var dest = prompt("과정 설명을 입력하세요." ,"");
+    	//var hour = prompt("과정 시간을 입력하세요." ,"");
+    	/* inserturl+="title="+title+"&"+"description="+dest+"&"+"time="+hour;
+    	location.href = inserturl; */
+    }     
+    else if (document.getElementById("leave").value == "2"){
+    	
+    	$("#insertBox").css("display", "none");
+      $("#updateBox").css("display", "");
+      $("#listBox").css("display", "none");
+      $("#deleteBox").css("display", "none");
+      $("#detailBox").css("display", "none");
+        
+    	/* var no = prompt("수정하실 과정정보의 번호를 입력하세요.",""); 
+    	var title = prompt("변경하실 이름을 입력하세요" ,"");
+    	var dest = prompt("정보를 입력하세요" ,"");
+    	var hour = prompt("시간을 입력하세요" ,"");
+    	location.href = updateurl+="no="+no+"&title="+title+"&description="+dest+"&time="+hour; */
+    }
+    else if (document.getElementById("leave").value == "3"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "");
+        $("#deleteBox").css("display", "none");
+        $("#detailBox").css("display", "none");
+    	
+    	/* var sn = prompt("조회하실 페이지 번호를 입력하세요", "");
+    	var sz = prompt("출력하실 데이터 개수를 입력하세요", "");
+    	location.href = listurl+="pageNo="+sn+"&pageSize="+sz;  */
+    }
+    else if (document.getElementById("leave").value == "4"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "none");
+        $("#deleteBox").css("display", "");
+        $("#detailBox").css("display", "none");
+    	
+    	/* var n = prompt("삭제하실 데이터 번호를 입력하세요.","");
+    	location.href = deleteurl+=n; */
+    	
+    }
+  else if (document.getElementById("leave").value == "5"){
+    	
+    	$("#insertBox").css("display", "none");
+        $("#updateBox").css("display", "none");
+        $("#listBox").css("display", "none");
+        $("#deleteBox").css("display", "none");
+        $("#detailBox").css("display", "");
+    	
+    	/* var n = prompt("검색하실 데이터 번호를 입력하세요","");
+    	location.href = detailurl+=n;  */
+    }
+  else if (document.getElementById("leave").value == "0"){
+  	
+  	$("#insertBox").css("display", "none");
+      $("#updateBox").css("display", "none");
+      $("#listBox").css("display", "none");
+      $("#deleteBox").css("display", "none");
+      $("#detailBox").css("display", "none");
+  	
+  	/* var n = prompt("검색하실 데이터 번호를 입력하세요","");
+  	location.href = detailurl+=n;  */
+  }
+    
+  }
+</script>
+</html>
