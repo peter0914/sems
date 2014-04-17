@@ -41,7 +41,7 @@ public class MysqlCourseDao implements CourseDao{
     ResultSet rs = null;
     try{
       con = dbConnectionPool.getConnection();
-      stmt = con.prepareStatement("select CNO, TITLE from SE_COURS"
+      stmt = con.prepareStatement("select CNO, TITLE, HOURS from SE_COURS"
           + " order by CNO desc limit ?, ?");
       stmt.setInt(1, (pageNo-1)*pageSize);
       stmt.setInt(2, pageSize);
@@ -49,7 +49,8 @@ public class MysqlCourseDao implements CourseDao{
       ArrayList<CourseVo> list = new ArrayList<CourseVo>();
       while(rs.next()){
         list.add(new CourseVo()
-            .setNo(rs.getInt("CNO")).setTitle(rs.getString("TITLE")));
+            .setNo(rs.getInt("CNO")).setTitle(rs.getString("TITLE"))
+            .setTime(Integer.parseInt(rs.getString("HOURS"))));
       }
       return list;
     }catch(Throwable e){
