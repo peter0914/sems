@@ -12,11 +12,13 @@ List<CourseVo> list =
   <meta charset="UTF-8">
 
 <title>과정 목록</title>
+<%@include file="../header.inc"%>
 </head>
 <body>
+<%@include file="../body.inc"%>
 <h1>과정 목록(byJSP)</h1>
 <a href='form.html'>새과정</a><br>
-<table border='1'>
+<table>
 <tr>
 <th>번호</th>
 <th>과정명</th>
@@ -31,6 +33,7 @@ List<CourseVo> list =
 <%}%>
 
 </table>
+<%@include file="../footer.inc"%>
 </body></html>
 
 
