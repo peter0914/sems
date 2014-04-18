@@ -6,7 +6,19 @@
 <link rel="stylesheet" type="text/css" href="../sems.css">
 </head>
 <body>
-<div class="topbar"></div>
+<div class="topbar">
+<div class="navi">
+<ul>
+<li><a href="/subject/list.bit?pageNo=1&pageSize=10">
+<span class="icon icon-subject"></span><span class="text">과목정보</span></a></li>
+<li><a href="/course/list.bit?pageNo=1&pageSize=10">
+<span class="icon icon-course"></span><span class="text">과정정보</span></a></li>
+<li><a href="/user/list.bit?pageNo=1&pageSize=10">
+<span class="icon icon-user"></span><span class="text">사용자정보</span></a></li>
+</ul>
+</div>
+</div>
+<div class="content">
 <h1>과목 입력</h1>
 <form action="insert.bit" method="post">
 과목명: <input type="text" name="title"><br>
@@ -14,5 +26,6 @@
 <input type="submit" value="등록">
 <input type="button" value="취소" onclick="location.href='list.bit?pageNo=1&pageSize=10'">
 </form>
+</div>
 </body>
 </html>
