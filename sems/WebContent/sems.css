@@ -101,6 +101,7 @@ li{
 
 table{
   margin : auto;
+  border-spacing : 6px;
 }
 
 h{
@@ -110,7 +111,7 @@ h{
 th, td{
   color : gray;
   background-color : white;
-  border-radius : 6px;
+  border-radius : 4px;
 }
 
 th:hover{

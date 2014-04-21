@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Refresh" content="1;url=list.bit?pageNo=1&pageSize=10">
-  <title>과목 등록 결과</title>
+  <title>사용자 등록 결과</title>
 </head>
 <body>
-<p>과목 등록 성공입니다.</p>
+<p>사용자 등록 성공입니다.</p>
 </body></html>
